@@ -657,15 +657,15 @@ test('signedTypeData_v4', (t) => {
     `0x${[
       '4bd8a9a2b93427bb184aca81e24beb30ffa3c747e2a33d4225ec08bf12e2e753',
       '9b4846dd48b866f0ac54d61b9b21a9e746f921cefa4ee94c4c0a1c49c774f67f',
-      'ca322beec85be24e374d18d582a6f2997f75c54e7993ab5bc07404ce176ca7cd',
+      'efa62530c7ae3a290f8a13a5fc20450bdb3a6af19d9d9d2542b5a94e631a9168',
       'b5aadf3154a261abdd9086fc627b61efca26ae5702701d05cd2305f7c52a2fc8',
     ].join('')}`);
   t.equal(ethUtil.bufferToHex(utils.hashStruct(typedData.primaryType, typedData.message, typedData.types)),
-    '0xeb4221181ff3f1a83ea7313993ca9218496e424604ba9492bb4052c03d5c3df8');
+    '0x99b97a26b830a26d5ca27ced87ba4d73c6276a2b8315656882a771d6f98b01f3');
   t.equal(ethUtil.bufferToHex(utils.hashStruct('EIP712Domain', typedData.domain, typedData.types)),
     '0xf2cee375fa42b42143804025fc449deafd50cc031ca257e0b194a650a912090f');
   t.equal(ethUtil.bufferToHex(utils.sign(typedData)),
-    '0xa85c2e2b118698e88db68a8105b794a8cc7cec074e89ef991cb4f5f533819cc2');
+    '0x66c6a7d830704b2b1c4a4245129d468a84449b50a6237f6fad4a38a0ace770a1');
 
   const privateKey = ethUtil.sha3('cow');
 
@@ -674,7 +674,7 @@ test('signedTypeData_v4', (t) => {
 
   const sig = sigUtil.signTypedData_v4(privateKey, { data: typedData });
 
-  t.equal(sig, '0x65cbd956f2fae28a601bebc9b906cea0191744bd4c4247bcd27cd08f8eb6b71c78efdf7a31dc9abee78f492292721f362d296cf86b4538e07b51303b67f749061b');
+  t.equal(sig, '0xf632e305033e23de75545fcdd0a481d83d9d41954e12c07004327cddf4e3c762757652b04d11dd022e0018e6160723f322d0b4bd9b41c87db93755405f5548391b');
 });
 
 
@@ -766,15 +766,15 @@ test('signedTypeData_v4', (t) => {
     `0x${[
       '4bd8a9a2b93427bb184aca81e24beb30ffa3c747e2a33d4225ec08bf12e2e753',
       '9b4846dd48b866f0ac54d61b9b21a9e746f921cefa4ee94c4c0a1c49c774f67f',
-      'ca322beec85be24e374d18d582a6f2997f75c54e7993ab5bc07404ce176ca7cd',
+      'efa62530c7ae3a290f8a13a5fc20450bdb3a6af19d9d9d2542b5a94e631a9168',
       'b5aadf3154a261abdd9086fc627b61efca26ae5702701d05cd2305f7c52a2fc8',
     ].join('')}`);
   t.equal(ethUtil.bufferToHex(utils.hashStruct(typedData.primaryType, typedData.message, typedData.types)),
-    '0xeb4221181ff3f1a83ea7313993ca9218496e424604ba9492bb4052c03d5c3df8');
+    '0x99b97a26b830a26d5ca27ced87ba4d73c6276a2b8315656882a771d6f98b01f3');
   t.equal(ethUtil.bufferToHex(utils.hashStruct('EIP712Domain', typedData.domain, typedData.types)),
     '0xf2cee375fa42b42143804025fc449deafd50cc031ca257e0b194a650a912090f');
   t.equal(ethUtil.bufferToHex(utils.sign(typedData)),
-    '0xa85c2e2b118698e88db68a8105b794a8cc7cec074e89ef991cb4f5f533819cc2');
+    '0x66c6a7d830704b2b1c4a4245129d468a84449b50a6237f6fad4a38a0ace770a1');
 
   const privateKey = ethUtil.sha3('cow');
 
@@ -783,7 +783,7 @@ test('signedTypeData_v4', (t) => {
 
   const sig = sigUtil.signTypedData_v4(privateKey, { data: typedData });
 
-  t.equal(sig, '0x65cbd956f2fae28a601bebc9b906cea0191744bd4c4247bcd27cd08f8eb6b71c78efdf7a31dc9abee78f492292721f362d296cf86b4538e07b51303b67f749061b');
+  t.equal(sig, '0xf632e305033e23de75545fcdd0a481d83d9d41954e12c07004327cddf4e3c762757652b04d11dd022e0018e6160723f322d0b4bd9b41c87db93755405f5548391b');
 });
 
 test('signedTypeData_v4 with recursive types', (t) => {

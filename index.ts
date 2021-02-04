@@ -117,6 +117,15 @@ const TypedDataUtils = {
 
         if (type.lastIndexOf(']') === type.length - 1) {
           const parsedType = type.slice(0, type.lastIndexOf('['));
+
+          // If it's a struct, we concatenate their encodedData and then take the keccak256
+          // as per "The array values are encoded as the keccak256 hash of the concatenated encodeData of their contents"
+          if (types[parsedType] !== undefined) {
+            const typeValuePairs = value.map((item) => this.encodeData(parsedType, item, types));
+            return ['bytes32', ethUtil.sha3(Buffer.concat(typeValuePairs))];
+          }
+
+          // Otherwise we use encodeField as it's not a struct
           const typeValuePairs = value.map((item) => encodeField(name, parsedType, item));
           return ['bytes32', ethUtil.sha3(ethAbi.rawEncode(
             typeValuePairs.map(([t]) => t),
